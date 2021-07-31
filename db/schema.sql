@@ -2,54 +2,39 @@ USE employee_db;
 
 
 -- delete tables if exist
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS department;
 
 -- create tables and show them
-CREATE TABLE departments (
+CREATE TABLE department (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    title VARCHAR(30) NOT NULL
+    name VARCHAR(30) NOT NULL
 );
 
-DESCRIBE departments;
 
-CREATE TABLE roles (
+
+CREATE TABLE role (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
     department_id INT,
-    FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE
+    FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE
     SET
         NULL
 );
 
-DESCRIBE roles;
 
-CREATE TABLE managers (
-    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    department_id INT,
-    CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE
-    SET
-        NULL
-);
 
-DESCRIBE managers;
-
-CREATE TABLE employees (
+CREATE TABLE employee (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     role_id INT,
     manager_id INT,
-    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE
-    SET
-        NULL,
-    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES managers(id) ON DELETE
+    FOREIGN KEY (role_id) REFERENCES role(id) ON DELETE
     SET
         NULL
 );
 
-DESCRIBE employees;
+

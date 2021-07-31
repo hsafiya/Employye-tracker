@@ -1,6 +1,6 @@
 -- add data to tables and render
 INSERT INTO
-    departments (title)
+    department (name)
 VALUES
     ("Sales"),
     ("IT"),
@@ -10,7 +10,7 @@ VALUES
 SELECT * FROM departments;
 
 INSERT INTO
-    roles (title, salary, department_id)
+    role (title, salary, department_id)
 VALUES
     ("Sales Lead", 60000, 1),
     ("Salesperson", 45000, 1),
@@ -21,25 +21,14 @@ VALUES
     ("HR coordinator", 80000, 4),
     ("Director of HR", 90000, 4);
 
-SELECT * FROM roles;
-
-INSERT INTO
-    managers (first_name, last_name, department_id)
-VALUES
-    ("Emil", "Garayev", 1),
-    ("Sarah", "Peter", 2),
-    ("Timur", "Ivanovich", 3),
-    ("George", "Clone", 4);
+SELECT * FROM role;
 
 
-SELECT
-    *
-FROM
-    managers;
+
 
 
 INSERT INTO
-    employees (first_name, last_name, role_id, manager_id)
+    employee (first_name, last_name, role_id, manager_id)
 VALUES
     ("Emil", "Garayev", 1, Null),
     ("Sarah", "Peter", 3, Null),
@@ -50,4 +39,4 @@ VALUES
     ("Brian", "Matt", 6, 3),
     ("Mary", "Jane", 8, 4);
 
-SELECT * FROM employees;
+SELECT * FROM employee;
