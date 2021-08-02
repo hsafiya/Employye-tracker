@@ -4,7 +4,7 @@ The employee tracker is a node-based application that allows you to create and m
   ## Description
   Back End SQL based app what allows to create and manipulate a databse ofemployees.
   
-  ## Link to the walkthrough video: 
+  ## Link to the walkthrough video:  https://youtu.be/2N5N6FB_OU8
 
   ## Table of contents
 * [Installation](#installation)
